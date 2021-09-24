@@ -98,8 +98,3 @@ if __name__=="__main__":
             file2.write("Invalid Command\n") #If any other command is entered, then it is INVALID
     file1.close()
     file2.close()
-    #Removing the last line from output file which is an extra '\n'
-    """lines = open('output.txt', 'r').readlines() 
-    del lines[-1] 
-    open('output.txt', 'w').writelines(lines) 
-    """
