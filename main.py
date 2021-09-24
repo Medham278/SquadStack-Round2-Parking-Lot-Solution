@@ -99,7 +99,7 @@ if __name__=="__main__":
     file1.close()
     file2.close()
     #Removing the last line from output file which is an extra '\n'
-    lines = open('output.txt', 'r').readlines() 
+    """lines = open('output.txt', 'r').readlines() 
     del lines[-1] 
     open('output.txt', 'w').writelines(lines) 
-    
+    """
