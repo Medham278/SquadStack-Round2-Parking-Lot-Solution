@@ -62,7 +62,7 @@ if __name__=="__main__":
     #opening input and output files 
     file1 = open('input.txt', 'r') 
     flines = file1.readlines() 
-    file2 = open('output.txt', 'x')
+    #file2 = open('output.txt', 'x')
     for line in flines:
         line=line.strip()
         if line=='': break #If EOF is reached, we stop processing
@@ -70,31 +70,31 @@ if __name__=="__main__":
         cmd = list(map(str,line.split()))
         if cmd[0]=="Create_parking_lot":
             obj=Parking(int(cmd[1]))
-            file2.write("Created parking of {} slots".format(int(cmd[1]))+'\n')
+            print("Created parking of {} slots".format(int(cmd[1])))
         elif cmd[0]=="Park":
             slot=obj.park(cmd[1], int(cmd[3]))
             if slot==-1:
-                file2.write("The Parking lot is full\n")
+                print("The Parking lot is full")
             else:
-                file2.write("Car with vehicle registration number \"{}\" has been parked at slot number {}\n".format(cmd[1],slot))
+                print("Car with vehicle registration number \"{}\" has been parked at slot number {}".format(cmd[1],slot))
         elif cmd[0]=="Slot_numbers_for_driver_of_age":
             ans=obj.getSlotAge(int(cmd[1]))
-            file2.write(ans+'\n')
+            print(ans)
         elif cmd[0]=="Slot_number_for_car_with_number":
             ans=obj.getSlotRno(cmd[1])
-            file2.write(ans+'\n')
+            print(ans)
         elif cmd[0]=="Leave":
             ans=obj.leave(int(cmd[1]))
             if ans==2:
-                file2.write("Slot does not exist in Parking Lot\n")
+                print("Slot does not exist in Parking Lot")
             elif ans==1:
-                file2.write("Slot already vacant\n")
+                print("Slot already vacant")
             else:
-                file2.write("Slot number {} vacated, the car with vehicle registration number \"{}\" left the space, the driver of the car was of age {}\n".format(int(cmd[1]),ans[0],ans[1]))
+                print("Slot number {} vacated, the car with vehicle registration number \"{}\" left the space, the driver of the car was of age {}".format(int(cmd[1]),ans[0],ans[1]))
         elif cmd[0]=="Vehicle_registration_number_for_driver_of_age":
             ans=obj.getRno(cmd[1])
-            file2.write(ans+'\n')
+            print(ans)
         else:
-            file2.write("Invalid Command\n") #If any other command is entered, then it is INVALID
+            print("Invalid Command") #If any other command is entered, then it is INVALID
     file1.close()
-    file2.close()
+    #file2.close()

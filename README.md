@@ -30,4 +30,5 @@ A utility class named "Parking" is created with the following functions-
 5. getRno() - Gets all the Registration Numbers (comma-separated) where age of driver is equal to the given age.<br>
 6. leave() - will vacate the specified Parking slot.<br>
 
-Necessary statements have been added in cases where the command cannot be performed. This makes the program understandable during runtime.
+Necessary statements have been added in cases where the command cannot be performed. This makes the program understandable during runtime.<br><br>
+__NOTE : main.py print outputs onto Terminal. To make it print into output.py file, uncomment the file2 lines, change printf statements to file2.write and add '\n' to end of each write statement.__
