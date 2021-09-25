@@ -92,7 +92,7 @@ if __name__=="__main__":
                 print("Slot number {} vacated, the car with vehicle registration number \"{}\" left the space, the driver of the car was of age {}".format(int(cmd[1]),ans[0],ans[1]))
 
         elif cmd[0]=="Vehicle_registration_number_for_driver_of_age":
-            ans=obj.getRno(cmd[1])
+            ans=obj.getRno(int(cmd[1]))
             print(ans)
 
         else:
