@@ -22,13 +22,48 @@ file will contain a set of commands separated by a newline, we need to execute t
 in order and produce output.
 
 # Approach :
-A utility class named "Parking" is created with the following functions-
+A utility class named "Parking" is created with the following functions-<br>
 1. init() - Initializes a Parkig Lot of specific size <br>
 2. park() - Parks the car into the nearest available Parking space<br>
-3. getSlotAge() - Gets all the slot numbers (comma-separated) where age of driver is equal to the given age.<br>
-4. getSlotRno() - Gets all the slot numbers (comma-separated) where Registration Number of driver is equal to the given Registration Number.<br>
-5. getRno() - Gets all the Registration Numbers (comma-separated) where age of driver is equal to the given age.<br>
-6. leave() - will vacate the specified Parking slot.<br>
+3. getSlot() - Gets all the slot numbers (comma-separated) where age/Registration number of driver is equal to the given input.<br>
+4. getRno() - Gets all the Registration Numbers (comma-separated) where age of driver is equal to the given age.<br>
+5. leave() - will vacate the specified Parking slot.<br>
 
 Necessary statements have been added in cases where the command cannot be performed. This makes the program understandable during runtime.<br><br>
-__NOTE : main.py print outputs onto Terminal. To make it print into output.py file, uncomment the file2 lines, change printf statements to file2.write and add '\n' to end of each write statement.__
+__NOTE : main.py print outputs onto Terminal. To make it print into output.py file, uncomment the file2 lines, change printf statements to file2.write and add '\n' to end of each write statement.__<br>
+
+# Time & Space Complexities of each function :
+<table>
+n=Size of Parking Lot<br>
+m=Length of answer string(comma-separated)<br>
+  <tr>
+    <th>Function Name</th>
+    <th>Time Complexity</th>
+    <th>Space Complexity</th>
+  </tr>
+  <tr>
+    <td>init</td>
+    <td>O(n)</td>
+    <td>O(n)</td>
+  </tr>
+  <tr>
+    <td>park</td>
+    <td>O(n)</td>
+    <td>O(1)</td>
+  </tr>
+  <tr>
+    <td>getSlot</td>
+    <td>O(n)</td>
+    <td>O(m)</td>
+  </tr>
+  <tr>
+    <td>getRno</td>
+    <td>O(n)</td>
+    <td>O(m)</td>
+  </tr>
+  <tr>
+    <td>leave</td>
+    <td>O(1)</td>
+    <td>O(1)</td>
+  </tr>
+</table>

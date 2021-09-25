@@ -18,21 +18,14 @@ class Parking:
                 return l+1
         return -1 #If no slot is available          
     
-    #Get all slot numbers corresponding to given age
-    def getSlotAge(self,age):
+    #Get all slot numbers corresponding to given age/Registration number
+    def getSlot(self,data):
         ans=""
+        #If data is Registration number, it is a String type data. 
+        idx=0 if type(data)==str else 1
         for i in range(len(self.lots)):
             if self.lots[i]==0: continue #No car parked in this lot
-            elif self.lots[i][1]==age:
-                ans+=','+str(i+1) if len(ans)>0 else str(i+1)
-        return ans #comma separated slots outputed
-    
-    #Get all slot numbers corresponding to given Registration Number
-    def getSlotRno(self,rno):
-        ans=""
-        for i in range(len(self.lots)):
-            if self.lots[i]==0: continue #No car parked in this lot
-            elif self.lots[i][0]==rno:
+            elif self.lots[i][idx]==data:
                 ans+=','+str(i+1) if len(ans)>0 else str(i+1)
         return ans #comma separated slots outputed
     
@@ -63,37 +56,45 @@ if __name__=="__main__":
     file1 = open('input.txt', 'r') 
     flines = file1.readlines() 
     #file2 = open('output.txt', 'x')
+
     for line in flines:
         line=line.strip()
         if line=='': break #If EOF is reached, we stop processing
         #Splitting the command name from the inputs
         cmd = list(map(str,line.split()))
+
         if cmd[0]=="Create_parking_lot":
             obj=Parking(int(cmd[1]))
             print("Created parking of {} slots".format(int(cmd[1])))
+
         elif cmd[0]=="Park":
             slot=obj.park(cmd[1], int(cmd[3]))
             if slot==-1:
-                print("The Parking lot is full")
+                print("The Parking lot is full. Slot cannot be allotted.")
             else:
                 print("Car with vehicle registration number \"{}\" has been parked at slot number {}".format(cmd[1],slot))
+
         elif cmd[0]=="Slot_numbers_for_driver_of_age":
-            ans=obj.getSlotAge(int(cmd[1]))
+            ans=obj.getSlot(int(cmd[1]))
             print(ans)
+
         elif cmd[0]=="Slot_number_for_car_with_number":
-            ans=obj.getSlotRno(cmd[1])
+            ans=obj.getSlot(cmd[1])
             print(ans)
+
         elif cmd[0]=="Leave":
             ans=obj.leave(int(cmd[1]))
             if ans==2:
-                print("Slot does not exist in Parking Lot")
+                print("Slot does not exist in Parking Lot. Slot numbers range from 1 to {}".format(obj.numLots))
             elif ans==1:
-                print("Slot already vacant")
+                print("Slot already Vacant")
             else:
                 print("Slot number {} vacated, the car with vehicle registration number \"{}\" left the space, the driver of the car was of age {}".format(int(cmd[1]),ans[0],ans[1]))
+
         elif cmd[0]=="Vehicle_registration_number_for_driver_of_age":
             ans=obj.getRno(cmd[1])
             print(ans)
+
         else:
             print("Invalid Command") #If any other command is entered, then it is INVALID
     file1.close()
