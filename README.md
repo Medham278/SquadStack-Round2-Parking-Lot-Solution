@@ -23,7 +23,7 @@ in order and produce output.
 
 # Approach :
 A utility class named "Parking" is created with the following functions-<br>
-1. init() - Initializes a Parkig Lot of specific size <br>
+1. init() - Initializes a Parking Lot of specific size <br>
 2. park() - Parks the car into the nearest available Parking space<br>
 3. getSlot() - Gets all the slot numbers (comma-separated) where age/Registration number of driver is equal to the given input.<br>
 4. getRno() - Gets all the Registration Numbers (comma-separated) where age of driver is equal to the given age.<br>
